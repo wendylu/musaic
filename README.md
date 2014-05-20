@@ -9,4 +9,6 @@ visualize music collections in graphs of similarity. graphs using D3
 
 ![Imgur](http://i.imgur.com/mc5BcUm.png)  
 
-Please email me or comment here for access to this project
+See `getSimilarSongs` and `getSimilarity` in song.rb for the similarity scoring algorithm for songs.
+
+Please email me or comment here for full access to this project
