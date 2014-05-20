@@ -5,9 +5,8 @@ visualize music collections in graphs of similarity. graphs using D3
 
 ![Imgur](http://i.imgur.com/Fz4XI33.png)  
 
-![Imgur](http://i.imgur.com/5ssEz0e)  
+![Imgur](http://i.imgur.com/Y8k45PZ.png)
 
-![Imgur](http://i.imgur.com/5Qe6w7C)  
+![Imgur](http://i.imgur.com/mc5BcUm.png)  
 
-
-Message me for access to the project
+Please email me or comment here for access to this project
