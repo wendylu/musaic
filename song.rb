@@ -29,7 +29,6 @@ class Song < ActiveRecord::Base
   
   attr_accessible :title, :artist, :album, :trackKey, :artistKey, :albumKey, :danceability, :energy, :mode, :tags
 
-=begin
   def initialize(title, artist, album, trackKey, artistKey, albumKey, danceability, energy, mode, tags)
     @title = title
     @artist = artist
@@ -42,11 +41,9 @@ class Song < ActiveRecord::Base
     @mode = mode
     @tags = tags
   end
-=end
 
   # returns an array of songs below the given similarity score relative to the given song
   def getSimilarSongs(threshold)
-=begin
     toReturn = []
     for song in Song.all
       if (song != self)
@@ -57,7 +54,6 @@ class Song < ActiveRecord::Base
       end
     end
     return toReturn
-=end
   
   scores = []
   matchingEntries = Score.find(:all, :conditions => ["song1_id = ? AND similarity < ?", self.id, threshold.to_s])
@@ -67,14 +63,12 @@ class Song < ActiveRecord::Base
     end
   end
   
-=begin
   matchingEntries = Score.find(:all, :conditions => ["song2_id = ? AND similarity < ?", self.id, threshold.to_s])
   for score in matchingEntries
     if (!scores.include?(score) && score.song1 != self)
       scores << score
     end
   end
-=end
   scores.sort! { |a,b| a.similarity <=> b.similarity}
   
   toReturn = []
@@ -107,7 +101,6 @@ class Song < ActiveRecord::Base
       return cachedScore[0]["similarity"].to_f
     else
       return 10 #if it's not cached, the similarity cannot be less than 6
-=begin
       #Weights must add to 1!!
       tagsWeight = 0.5
       danceWeight = 0.2
@@ -132,7 +125,6 @@ class Song < ActiveRecord::Base
       ActiveRecord::Base.connection.execute("INSERT INTO scores (song1_id, song2_id, similarity) VALUES (#{song.id}, #{self.id}, #{score.round(3)})")
  
       return score
-=end
     end
   end
   
